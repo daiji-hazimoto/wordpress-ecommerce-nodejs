@@ -1,450 +1,158 @@
-Contribution: 2020-01-02 00:00
+# BestBags
 
-Contribution: 2020-01-02 00:01
+## Table of contents
 
-Contribution: 2020-01-02 00:02
+- [Introduction](#introduction)
+- [Demo](#demo)
+- [Run](#run)
+- [Technology](#technology)
+- [Features](#features)
+- [Database Models](#database)
+- [Color Palette](#colors)
+- [License](#license)
 
-Contribution: 2020-01-02 00:03
+## Introduction
 
-Contribution: 2020-01-02 00:04
+A virtual ecommerce website using Node js, Express js, and Mongoose.
 
-Contribution: 2020-01-02 00:05
+NOTE: Please read the RUN section before opening an issue.
 
-Contribution: 2020-01-07 00:00
+## Demo
 
-Contribution: 2020-01-07 00:01
+![screenshot](screenshot.png)
 
-Contribution: 2020-01-07 00:02
+The application is deployed to Heroku and can be accessed through the following link:
 
-Contribution: 2020-01-09 00:00
+[BestBags on Heroku](https://best-bags.herokuapp.com/)
 
-Contribution: 2020-01-13 00:00
+The website resembles a real store and you can add products to your cart and pay for them. If you want to try the checkout process, you can use the dummy card number provided by stripe for testing which is 4242 4242 4242 4242 with any expiration date, CVC, and zip codes. Please <u><b>DO NOT</b></u> provide real card number and data.
 
-Contribution: 2020-01-13 00:01
+In order to access the admin panel on "/admin" you need to provide the admin email and password.
 
-Contribution: 2020-01-13 00:02
+## Run
 
-Contribution: 2020-01-14 00:00
+To run this application, you have to set your own environmental variables. For security reasons, some variables have been hidden from view and used as environmental variables with the help of dotenv package. Below are the variables that you need to set in order to run the application:
 
-Contribution: 2020-01-14 00:01
+- MONGO_URI: this is the connection string of your MongoDB Atlas database.
 
-Contribution: 2020-01-14 00:02
+- SESSION_SECRET: a secret message for the session. You can use any string here.
 
-Contribution: 2020-01-14 00:03
+- STRIPE_PRIVATE_KEY: the stripe package is used to process payment in the checkout route. To get this, you should set up a stripe account and put your private API key here.
 
-Contribution: 2020-01-14 00:04
+- GMAIL_EMAIL, GMAIL_PASSWORD: the email and password given to nodemailer to send/receive the email. Please put a real email and password here because you will receive the messages sent from the contact us form on this email.
 
-Contribution: 2020-01-14 00:05
+- ADMIN_EMAIL, ADMIN_PASSWORD: the email and password used to log into the admin panel using AdminBro. You can put any email and password here.
 
-Contribution: 2020-01-14 00:06
+- ADMIN_COOKIE_NAME, ADMIN_COOKIE_PASSWORD: the cookie name and password used in the AdminBro authentication method. You can put any strings here.
 
-Contribution: 2020-01-15 00:00
+After you've set these environmental variables in the .env file at the root of the project, you need to navigate to the "seedDB" folder and run "node category-seed.js" and "node products-seed.js" to fill your empty MongoDB Atlas database.
 
-Contribution: 2020-01-15 00:01
+Now you can run "npm start" in the terminal and the application should work.
 
-Contribution: 2020-01-15 00:02
+## Technology
 
-Contribution: 2020-01-15 00:03
+The application is built with:
 
-Contribution: 2020-01-15 00:04
+- Node.js version 12.16.3
+- MongoDB version 4.2.0
+- Express version 4.16.1
+- Bootstrap version 4.4.1
+- FontAwesome version 5.13.0
+- Stripe API v3: used for payment in the checkout page
+- Mapbox API: used to show the map in the about us page
+- AdminBro: used and customized to implement the admin panel
+- Nodemailer: used to send emails from the contact us form
+- Passport: used for authentication
+- Express Validator: used for form validation
 
-Contribution: 2020-01-15 00:05
+## Features
 
-Contribution: 2020-01-15 00:06
+The application displays a virtual bags store that contains virtual products and contact information.
 
-Contribution: 2020-01-15 00:07
+Users can do the following:
 
-Contribution: 2020-01-15 00:08
+- Create an account, login or logout
+- Browse available products added by the admin
+- Add products to the shopping cart
+- Delete products from the shopping cart
+- Display the shopping cart
+- To checkout, a user must be logged in
+- Checkout information is processed using stripe and the payment is send to the admin
+- The profile contains all the orders a user has made
 
-Contribution: 2020-01-16 00:00
+Admins can do the following:
 
-Contribution: 2020-01-16 00:01
+- Login or logout to the admin panel
+- View all the information stored in the database. They can view/add/edit/delete orders, users, products and categories. The cart model cannot be modified by an admin because a cart is either modified by the logged in user before the purchase or deleted after the purchase.
 
-Contribution: 2020-01-16 00:02
+## Database
 
-Contribution: 2020-01-16 00:03
+All the models can be found in the models directory created using mongoose.
 
-Contribution: 2020-01-16 00:04
+### User Schema:
 
-Contribution: 2020-01-16 00:05
+- username (String)
+- email (String)
+- password (String)
 
-Contribution: 2020-01-16 00:06
+### Category Schema:
 
-Contribution: 2020-01-16 00:07
-
-Contribution: 2020-01-17 00:00
-
-Contribution: 2020-01-17 00:01
-
-Contribution: 2020-01-17 00:02
-
-Contribution: 2020-01-17 00:03
-
-Contribution: 2020-01-17 00:04
-
-Contribution: 2020-01-20 00:00
-
-Contribution: 2020-01-20 00:01
-
-Contribution: 2020-01-20 00:02
-
-Contribution: 2020-01-22 00:00
-
-Contribution: 2020-01-22 00:01
-
-Contribution: 2020-01-22 00:02
-
-Contribution: 2020-01-22 00:03
-
-Contribution: 2020-01-22 00:04
-
-Contribution: 2020-01-22 00:05
-
-Contribution: 2020-01-22 00:06
-
-Contribution: 2020-01-22 00:07
-
-Contribution: 2020-01-22 00:08
-
-Contribution: 2020-01-22 00:09
-
-Contribution: 2020-01-24 00:00
-
-Contribution: 2020-01-24 00:01
-
-Contribution: 2020-01-24 00:02
-
-Contribution: 2020-01-24 00:03
-
-Contribution: 2020-01-24 00:04
-
-Contribution: 2020-01-24 00:05
-
-Contribution: 2020-01-27 00:00
-
-Contribution: 2020-01-27 00:01
-
-Contribution: 2020-01-27 00:02
-
-Contribution: 2020-01-27 00:03
-
-Contribution: 2020-01-27 00:04
-
-Contribution: 2020-01-27 00:05
-
-Contribution: 2020-01-27 00:06
-
-Contribution: 2020-01-27 00:07
-
-Contribution: 2020-01-27 00:08
-
-Contribution: 2020-01-27 00:09
-
-Contribution: 2020-01-30 00:00
-
-Contribution: 2020-01-30 00:01
-
-Contribution: 2020-01-30 00:02
-
-Contribution: 2020-01-30 00:03
-
-Contribution: 2020-01-30 00:04
-
-Contribution: 2020-01-30 00:05
-
-Contribution: 2020-02-04 00:00
-
-Contribution: 2020-02-04 00:01
-
-Contribution: 2020-02-04 00:02
-
-Contribution: 2020-02-04 00:03
-
-Contribution: 2020-02-04 00:04
-
-Contribution: 2020-02-04 00:05
-
-Contribution: 2020-02-05 00:00
-
-Contribution: 2020-02-11 00:00
-
-Contribution: 2020-02-11 00:01
-
-Contribution: 2020-02-11 00:02
-
-Contribution: 2020-02-11 00:03
-
-Contribution: 2020-02-11 00:04
-
-Contribution: 2020-02-11 00:05
-
-Contribution: 2020-02-11 00:06
-
-Contribution: 2020-02-11 00:07
-
-Contribution: 2020-02-11 00:08
-
-Contribution: 2020-02-11 00:09
-
-Contribution: 2020-02-12 00:00
-
-Contribution: 2020-02-17 00:00
-
-Contribution: 2020-02-17 00:01
-
-Contribution: 2020-02-17 00:02
-
-Contribution: 2020-02-18 00:00
-
-Contribution: 2020-02-18 00:01
-
-Contribution: 2020-02-18 00:02
-
-Contribution: 2020-02-18 00:03
-
-Contribution: 2020-02-18 00:04
-
-Contribution: 2020-02-18 00:05
-
-Contribution: 2020-02-18 00:06
-
-Contribution: 2020-02-20 00:00
-
-Contribution: 2020-02-20 00:01
-
-Contribution: 2020-02-20 00:02
-
-Contribution: 2020-02-21 00:00
-
-Contribution: 2020-02-21 00:01
-
-Contribution: 2020-02-21 00:02
-
-Contribution: 2020-02-21 00:03
-
-Contribution: 2020-02-21 00:04
-
-Contribution: 2020-02-21 00:05
-
-Contribution: 2020-02-21 00:06
-
-Contribution: 2020-02-21 00:07
-
-Contribution: 2020-02-27 00:00
-
-Contribution: 2020-02-27 00:01
-
-Contribution: 2020-02-27 00:02
-
-Contribution: 2020-02-27 00:03
-
-Contribution: 2020-03-02 00:00
-
-Contribution: 2020-03-02 00:01
-
-Contribution: 2020-03-03 00:00
-
-Contribution: 2020-03-03 00:01
-
-Contribution: 2020-03-03 00:02
-
-Contribution: 2020-03-05 00:00
-
-Contribution: 2020-03-05 00:01
-
-Contribution: 2020-03-05 00:02
-
-Contribution: 2020-03-05 00:03
-
-Contribution: 2020-03-05 00:04
-
-Contribution: 2020-03-06 00:00
-
-Contribution: 2020-03-06 00:01
-
-Contribution: 2020-03-06 00:02
-
-Contribution: 2020-03-06 00:03
-
-Contribution: 2020-03-06 00:04
-
-Contribution: 2020-03-06 00:05
-
-Contribution: 2020-03-11 00:00
-
-Contribution: 2020-03-11 00:01
-
-Contribution: 2020-03-11 00:02
-
-Contribution: 2020-03-11 00:03
-
-Contribution: 2020-03-11 00:04
-
-Contribution: 2020-03-11 00:05
-
-Contribution: 2020-03-11 00:06
-
-Contribution: 2020-03-13 00:00
-
-Contribution: 2020-03-13 00:01
-
-Contribution: 2020-03-13 00:02
-
-Contribution: 2020-03-13 00:03
-
-Contribution: 2020-03-13 00:04
-
-Contribution: 2020-03-17 00:00
-
-Contribution: 2020-03-17 00:01
-
-Contribution: 2020-03-17 00:02
-
-Contribution: 2020-03-17 00:03
-
-Contribution: 2020-03-17 00:04
-
-Contribution: 2020-03-17 00:05
-
-Contribution: 2020-03-17 00:06
-
-Contribution: 2020-03-17 00:07
-
-Contribution: 2020-03-23 00:00
-
-Contribution: 2020-03-23 00:01
-
-Contribution: 2020-03-24 00:00
-
-Contribution: 2020-03-24 00:01
-
-Contribution: 2020-03-24 00:02
-
-Contribution: 2020-03-24 00:03
-
-Contribution: 2020-03-24 00:04
-
-Contribution: 2020-03-24 00:05
-
-Contribution: 2020-03-24 00:06
-
-Contribution: 2020-03-24 00:07
-
-Contribution: 2020-03-25 00:00
-
-Contribution: 2020-03-26 00:00
-
-Contribution: 2020-03-26 00:01
-
-Contribution: 2020-03-26 00:02
-
-Contribution: 2020-03-26 00:03
-
-Contribution: 2020-03-26 00:04
-
-Contribution: 2020-03-31 00:00
-
-Contribution: 2020-03-31 00:01
-
-Contribution: 2020-03-31 00:02
-
-Contribution: 2020-03-31 00:03
-
-Contribution: 2020-03-31 00:04
-
-Contribution: 2020-03-31 00:05
-
-Contribution: 2020-03-31 00:06
-
-Contribution: 2020-03-31 00:07
-
-Contribution: 2020-03-31 00:08
-
-Contribution: 2020-03-31 00:09
-
-Contribution: 2020-04-01 00:00
-
-Contribution: 2020-04-01 00:01
-
-Contribution: 2020-04-01 00:02
-
-Contribution: 2020-04-01 00:03
-
-Contribution: 2020-04-01 00:04
-
-Contribution: 2020-04-08 00:00
-
-Contribution: 2020-04-08 00:01
-
-Contribution: 2020-04-08 00:02
-
-Contribution: 2020-04-08 00:03
-
-Contribution: 2020-04-15 00:00
-
-Contribution: 2020-04-15 00:01
-
-Contribution: 2020-04-16 00:00
-
-Contribution: 2020-04-24 00:00
-
-Contribution: 2020-04-24 00:01
-
-Contribution: 2020-04-24 00:02
-
-Contribution: 2020-04-24 00:03
-
-Contribution: 2020-04-24 00:04
-
-Contribution: 2020-04-24 00:05
-
-Contribution: 2020-04-24 00:06
-
-Contribution: 2020-04-24 00:07
-
-Contribution: 2020-04-24 00:08
-
-Contribution: 2020-04-29 00:00
-
-Contribution: 2020-04-29 00:01
-
-Contribution: 2020-04-29 00:02
-
-Contribution: 2020-04-29 00:03
-
-Contribution: 2020-04-29 00:04
-
-Contribution: 2020-04-29 00:05
-
-Contribution: 2020-04-29 00:06
-
-Contribution: 2020-04-29 00:07
-
-Contribution: 2020-05-05 00:00
-
-Contribution: 2020-05-05 00:01
-
-Contribution: 2020-05-05 00:02
-
-Contribution: 2020-05-05 00:03
-
-Contribution: 2020-05-06 00:00
-
-Contribution: 2020-05-06 00:01
-
-Contribution: 2020-05-06 00:02
-
-Contribution: 2020-05-06 00:03
-
-Contribution: 2020-05-06 00:04
-
-Contribution: 2020-05-06 00:05
-
-Contribution: 2020-05-06 00:06
-
-Contribution: 2020-05-06 00:07
-
-Contribution: 2020-05-06 00:08
-
-Contribution: 2020-05-06 00:09
-
+- title (String)
+- slug (String)
+
+### Product Schema:
+
+- productCode (String)
+- title (String)
+- imagePath (String)
+- description (String)
+- price (Number)
+- category (ObjectId - a reference to the category schema)
+- manufacturer (String)
+- available (Boolean)
+- createdAt (Date)
+
+### Cart Schema:
+
+- items: an array of objects, each object contains: <br>
+  ~ productId (ObjectId - a reference to the product schema) <br>
+  ~ qty (Number) <br>
+  ~ price (Number) <br>
+  ~ title (String) <br>
+  ~ productCode (Number) <br>
+- totalQty (Number)
+- totalCost (Number)
+- user (ObjectId - a reference to the user schema)
+- createdAt
+  <br><br>
+  \*\*The reason for including the title, price, and productCode again in the items object is AdminBro. If we are to write our own admin interface, we can remove them and instead populate a product field using the product id. However, AdminBro doesn't populate deep levels, so we had to repeat these fields in the items array in order to display them in the admin panel.
+
+### Order Schema:
+
+- user (ObjectId - a reference to the user schema)
+- cart (instead of a reference, we had to structure an object identical to the cart schema because of AdminBro, so we can display the cart's contents in the admin interface under each order)
+- address (String)
+- paymentId (String)
+- createdAt (Date)
+- Delivered (Boolean)
+
+## Colors
+
+Below is the color palette used in this application:
+
+- ![#478ba2](https://via.placeholder.com/15/478ba2/000000?text=+) `#478ba2`
+- ![#b9d4db](https://via.placeholder.com/15/b9d4db/000000?text=+) `#b9d4db`
+- ![#e9765b](https://via.placeholder.com/15/e9765b/000000?text=+) `#e9765b`
+- ![#f2a490](https://via.placeholder.com/15/f2a490/000000?text=+) `#f2a490`
+- ![#de5b6d](https://via.placeholder.com/15/de5b6d/000000?text=+) `#de5b6d`
+- ![#18a558](https://via.placeholder.com/15/18a558/000000?text=+) `#18a558`
+- ![#f9f7f4](https://via.placeholder.com/15/f9f7f4/000000?text=+) `#f9f7f4`
+- ![#202020](https://via.placeholder.com/15/202020/000000?text=+) `#202020`
+- ![#474747](https://via.placeholder.com/15/474747/000000?text=+) `#474747`
+
+## License
+
+[![License](https://img.shields.io/:License-MIT-blue.svg?style=flat-square)](http://badges.mit-license.org)
+
+- MIT License
+- Copyright 2020 © [Maryam Aljanabi](https://github.com/maryamaljanabi)
